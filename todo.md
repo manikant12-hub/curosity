@@ -21,3 +21,9 @@
 - [x] Upload `birthdaybash.png` to web project storage.
 - [x] Replace the first configured photo slot while keeping slots 02 and 03 editable.
 - [x] Verify the first photo in the post-yes reveal and save a checkpoint.
+
+## Opening sequence correction
+
+- [x] Remove the personal photo card from the initial opening screen.
+- [x] Keep the personal photo reveal exclusively after “Yes, obviously.”
+- [x] Verify the corrected sequence and save a checkpoint.
