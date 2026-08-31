@@ -89,3 +89,24 @@ img { display:block; max-width:100%; }
 .reveal-card img { aspect-ratio:auto; height:auto; object-fit:contain; object-position:center; background:#d9d0c2; }
 .photo-stack img { aspect-ratio:auto; height:auto; max-height:72svh; object-fit:contain; object-position:center; background:#d9d0c2; }
 @media (max-width:699px){.reveal-card-3 { width:72%; }.photo-stack img { max-height:68svh; }}
+
+/* Friendship reveal + cake celebration — playful sibling energy inside the editorial system. */
+.reveal-card { cursor:pointer; transition:transform .35s var(--ease), filter .35s var(--ease), opacity .35s var(--ease); }
+.reveal-card:not(.is-active) { filter:saturate(.72) brightness(.96); opacity:.82; }
+.reveal-card.is-active { z-index:8; filter:saturate(1.08) brightness(1.03); transform:translateY(-10px) rotateZ(0deg) scale(1.045); box-shadow:0 24px 42px rgba(28,42,39,.2); }
+.reveal-dots { position:relative; z-index:10; display:flex; justify-content:center; gap:9px; margin:10px 0 4px; }
+.reveal-dots button { width:28px; height:28px; display:grid; place-items:center; background:transparent; border:0; padding:0; }
+.reveal-dots button span { width:7px; height:7px; display:block; border-radius:50%; background:rgba(33,41,31,.3); transition:transform .2s var(--ease), background .2s var(--ease); }
+.reveal-dots button.is-active span { background:var(--sea-dark); transform:scale(1.7); }
+.birthday-cake { position:absolute; z-index:1; left:50%; bottom:24px; width:142px; height:78px; transform:translateX(-50%) translateY(12px) scale(.72); opacity:.1; transition:transform .6s var(--ease), opacity .6s var(--ease); }
+.birthday-cake.revealed { opacity:1; transform:translateX(-50%) translateY(0) scale(1); }
+.cake-layer { position:absolute; left:10px; right:10px; display:block; border-radius:12px 12px 8px 8px; box-shadow:inset 0 5px rgba(255,255,255,.24), 0 9px 0 rgba(0,0,0,.12); }
+.cake-top { bottom:40px; height:29px; background:#e8b79b; }
+.cake-bottom { bottom:12px; height:36px; background:#c97e68; }
+.cake-drip { position:absolute; z-index:2; left:16px; right:16px; bottom:35px; height:16px; border-radius:0 0 12px 12px; background:#f7dfc7; clip-path:polygon(0 0,100% 0,100% 70%,85% 65%,78% 100%,67% 68%,54% 90%,44% 62%,31% 100%,22% 65%,0 75%); }
+.candle-wrap { position:relative; }
+.candle { z-index:4; transition:transform .25s var(--ease); }
+.candle:hover { transform:translateY(-4px) rotate(-2deg); }
+.candle.out { transform:translateY(-18px) scale(.94); }
+@media (max-width:699px){.reveal-card.is-active{transform:translateY(-8px) rotateZ(0) scale(1.025)}.birthday-cake{bottom:22px}}
+@media (prefers-reduced-motion:reduce){.reveal-card,.reveal-card.is-active,.birthday-cake,.candle{transition:none;transform:none}.reveal-card:not(.is-active){filter:none;opacity:1}}

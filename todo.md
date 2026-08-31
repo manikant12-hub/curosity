@@ -63,3 +63,10 @@
 - [x] Reproduce why the after-keep-going preview link is not opening for the user.
 - [x] Provide a more reliable self-test entry point.
 - [x] Verify the fix and save a checkpoint.
+
+## Friendship celebration upgrade
+
+- [x] Rewrite the emotional copy with a playful brother-sister-style friendship tone.
+- [x] Make the post-yes photo reveal interactive with selectable slides and controls.
+- [x] Add a birthday cake reveal that starts or resumes KALYANI at the celebration moment.
+- [x] Verify the full flow and save a checkpoint.
