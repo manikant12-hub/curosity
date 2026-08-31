@@ -9,10 +9,10 @@ export const birthdayConfig = {
   previewParam: "preview",
   photos: [
     {
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85",
-      alt: "A beach horizon in soft evening light",
+      src: "/manus-storage/birthdaybash_10810fdc.png",
+      alt: "Aishwarya in a blue saree",
       caption: "One of those moments worth keeping.",
-      label: "01 / shore"
+      label: "01 / blue hour"
     },
     {
       src: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=85",

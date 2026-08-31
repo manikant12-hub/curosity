@@ -15,3 +15,9 @@
 - [x] Upload the supplied MP3 into the web project asset storage.
 - [x] Start the track from the user-initiated “Yes, obviously” action when the photo reveal opens.
 - [x] Add a discreet sound on/off control and verify the build.
+
+## Personal photo upload 01
+
+- [x] Upload `birthdaybash.png` to web project storage.
+- [x] Replace the first configured photo slot while keeping slots 02 and 03 editable.
+- [x] Verify the first photo in the post-yes reveal and save a checkpoint.
