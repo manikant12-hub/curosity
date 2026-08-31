@@ -51,3 +51,9 @@
 - [x] Preserve each uploaded photo's full composition in the post-yes reveal.
 - [x] Adjust portrait and collage framing for mobile and desktop without distortion.
 - [x] Verify the corrected reveal and save a checkpoint.
+
+## Preview bypass fix
+
+- [x] Make the preview link reliably bypass the date lock for self-testing.
+- [x] Preserve the real birthday countdown for normal visitors.
+- [x] Verify the corrected preview entry and save a checkpoint.

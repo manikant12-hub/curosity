@@ -18,8 +18,9 @@ export default function Home() {
   const params = new URLSearchParams(window.location.search);
   const preview = params.get(c.previewParam) === "true";
   const revealOnly = preview && params.get("reveal") === "true";
+  const afterKeepGoing = preview && params.get("start") === "after";
   const countdown = useCountdown(c.birthdayDate, preview);
-  const [started, setStarted] = useState(revealOnly);
+  const [started, setStarted] = useState(revealOnly || afterKeepGoing);
   const [photoReveal, setPhotoReveal] = useState(revealOnly);
   const [soundOn, setSoundOn] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
