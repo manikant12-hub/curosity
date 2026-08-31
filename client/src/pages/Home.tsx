@@ -16,9 +16,10 @@ function useCountdown(target: string, preview: boolean) {
 
 export default function Home() {
   const params = new URLSearchParams(window.location.search);
-  const preview = params.get(c.previewParam) === "true";
+  const pathPreview = window.location.pathname === "/preview-after";
+  const preview = params.get(c.previewParam) === "true" || pathPreview;
   const revealOnly = preview && params.get("reveal") === "true";
-  const afterKeepGoing = preview && params.get("start") === "after";
+  const afterKeepGoing = (preview && params.get("start") === "after") || pathPreview;
   const countdown = useCountdown(c.birthdayDate, preview);
   const [started, setStarted] = useState(revealOnly || afterKeepGoing);
   const [photoReveal, setPhotoReveal] = useState(revealOnly);

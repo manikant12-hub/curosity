@@ -57,3 +57,9 @@
 - [x] Make the preview link reliably bypass the date lock for self-testing.
 - [x] Preserve the real birthday countdown for normal visitors.
 - [x] Verify the corrected preview entry and save a checkpoint.
+
+## Preview link troubleshooting
+
+- [x] Reproduce why the after-keep-going preview link is not opening for the user.
+- [x] Provide a more reliable self-test entry point.
+- [x] Verify the fix and save a checkpoint.
