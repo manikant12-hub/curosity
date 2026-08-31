@@ -1,5 +1,5 @@
 // Sea Glass Editorial — the page is an authored digital art-book, not a template.
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowDown, ArrowRight, ChevronLeft, ChevronRight, LockKeyhole, Menu, RotateCcw, Sparkles, X } from "lucide-react";
 import { birthdayConfig as c } from "@/content";
 
@@ -19,6 +19,8 @@ export default function Home() {
   const countdown = useCountdown(c.birthdayDate, preview);
   const [started, setStarted] = useState(false);
   const [photoReveal, setPhotoReveal] = useState(false);
+  const [soundOn, setSoundOn] = useState(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [chapter, setChapter] = useState(0);
   const [photoIndex, setPhotoIndex] = useState(0);
@@ -32,11 +34,13 @@ export default function Home() {
   const scrollTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setNavOpen(false); };
   const response = useMemo(() => answers.length ? (answers.at(-1) === "YOU" || answers.at(-1) === "Obviously YOU" ? "Correct. Obviously." : "Interesting choice. I'll allow it.") : "Choose carefully.", [answers]);
 
-  if (!started) return <Opening onStart={() => { setStarted(true); setPhotoReveal(true); }} preview={preview} />;
-  if (photoReveal) return <PhotoReveal onContinue={() => setPhotoReveal(false)} />;
-  if (!countdown.unlocked) return <LockedScreen countdown={countdown} onReset={() => { setStarted(false); setPhotoReveal(false); }} />;
+  const audioNode = <audio ref={audioRef} src="/manus-storage/kalyani_remix_c835e34a.mp3" loop preload="auto" aria-label="Background music" />;
+  const startExperience = () => { setStarted(true); setPhotoReveal(true); void audioRef.current?.play().catch(() => setSoundOn(false)); };
+  if (!started) return <>{audioNode}<Opening onStart={startExperience} preview={preview} /></>;
+  if (photoReveal) return <>{audioNode}<PhotoReveal soundOn={soundOn} onToggleSound={() => { if (soundOn) { audioRef.current?.pause(); setSoundOn(false); } else { void audioRef.current?.play().catch(() => undefined); setSoundOn(true); } }} onContinue={() => setPhotoReveal(false)} /></>;
+  if (!countdown.unlocked) return <>{audioNode}<LockedScreen countdown={countdown} onReset={() => { setStarted(false); setPhotoReveal(false); }} /></>;
 
-  return <div className="site-shell">
+  return <><div className="site-shell">
     <header className="topbar">
       <button className="seal" aria-label="Open chapter navigation" onClick={() => setNavOpen(!navOpen)}><span>20</span><Menu size={15} /></button>
       <div className="topbar-meta"><span>08 JUNE 2027</span><span className="topbar-dot" /> <span>IST / 00:00</span></div>
@@ -62,9 +66,9 @@ export default function Home() {
     </main>
     <footer className="site-footer"><span>For Aishwarya, always.</span><button onClick={() => setSecret(true)}><Sparkles size={14}/> Psst…</button></footer>
     {secret && <div className="secret-overlay" role="dialog" aria-modal="true"><button className="menu-close" onClick={() => setSecret(false)} aria-label="Close secret"><X size={18}/></button><div className="secret-seal">20</div><p className="eyebrow clay">YOU FOUND IT</p><h2>Psst…</h2><p>Okay, now you’re officially not allowed to say I didn’t put effort into this.</p><p className="secret-signoff">Happy Birthday, Aishwarya.<br/>🤍</p><button className="reset-button" onClick={() => window.location.href = window.location.pathname}><RotateCcw size={15}/> Start again</button></div>}
-  </div>
+  </div>{audioNode}</>
 }
 
 function Opening({ onStart, preview }: { onStart: () => void; preview: boolean }) { const [line, setLine] = useState(0); useEffect(() => { const id = window.setInterval(() => setLine(v => Math.min(2, v + 1)), 1600); return () => window.clearInterval(id); }, []); return <section className="opening opening-paper"><div className="opening-noise"/><div className="opening-photo-fragment"><img src={c.photos[0].src} alt=""/><span>ARCHIVE / 01</span></div><div className="opening-mark"><span className="mark-loop mark-loop-a"/><span className="mark-loop mark-loop-b"/><b>20</b></div><div className="opening-copy"><p className={line >= 0 ? "visible" : ""}>Hey, Aishwarya.</p><p className={line >= 1 ? "visible" : ""}>I made something for you.</p><p className={`promise ${line >= 2 ? "visible" : ""}`}>Before you continue…<br/>promise me you’ll actually explore this?</p></div>{line >= 2 && <div className="opening-actions"><button onClick={onStart}>Yes, obviously <ArrowRight size={16}/></button><button onClick={onStart} className="maybe">Hmm…</button></div>}<span className="opening-date">08.06.27</span>{preview && <span className="preview-badge">PREVIEW MODE</span>}</section> }
-function PhotoReveal({ onContinue }: { onContinue: () => void }) { return <section className="photo-reveal"><div className="photo-reveal-top"><span className="eyebrow clay">A LITTLE SOMETHING FIRST</span><span className="photo-reveal-index">01 / 03</span></div><div className="photo-reveal-copy"><h1>Before the<br/><em>countdown…</em></h1><p>I wanted you to see these first.</p></div><div className="reveal-gallery">{c.photos.map((photo, i) => <figure key={photo.label} className={`reveal-card reveal-card-${i + 1}`}><img src={photo.src} alt={photo.alt}/><figcaption><span>{photo.label}</span><p>{photo.caption}</p></figcaption></figure>)}</div><button className="reveal-continue" onClick={onContinue}>Keep going <ArrowRight size={16}/></button></section> }
+function PhotoReveal({ onContinue, soundOn, onToggleSound }: { onContinue: () => void; soundOn: boolean; onToggleSound: () => void }) { return <section className="photo-reveal"><div className="photo-reveal-top"><span className="eyebrow clay">A LITTLE SOMETHING FIRST</span><span className="photo-reveal-index">01 / 03</span></div><div className="photo-reveal-copy"><h1>Before the<br/><em>countdown…</em></h1><p>I wanted you to see these first.</p></div><div className="reveal-gallery">{c.photos.map((photo, i) => <figure key={photo.label} className={`reveal-card reveal-card-${i + 1}`}><img src={photo.src} alt={photo.alt}/><figcaption><span>{photo.label}</span><p>{photo.caption}</p></figcaption></figure>)}</div><div className="reveal-actions"><button className="sound-toggle" onClick={onToggleSound} aria-pressed={soundOn}>♪ Sound {soundOn ? "on" : "off"}</button><button className="reveal-continue" onClick={onContinue}>Keep going <ArrowRight size={16}/></button></div></section> }
 function LockedScreen({ countdown, onReset }: { countdown: {days:number;hours:number;minutes:number;seconds:number}; onReset:()=>void }) { return <section className="locked"><div className="locked-orbit"><LockKeyhole size={18}/><span>THE SURPRISE IS SLEEPING</span></div><div className="locked-copy"><p className="eyebrow sea">COME BACK WHEN THE CLOCK SAYS IT’S YOUR DAY</p><h1>Something is<br/><em>waiting for you.</em></h1><div className="countdown">{[[countdown.days,"days"],[countdown.hours,"hours"],[countdown.minutes,"minutes"],[countdown.seconds,"seconds"]].map(([n, label]) => <div key={label as string}><strong>{pad(n as number)}</strong><span>{label}</span></div>)}</div><p className="locked-note">8 June 2027 · midnight in India</p></div><button className="locked-reset" onClick={onReset}>Back to the beginning</button></section> }

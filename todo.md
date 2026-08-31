@@ -9,3 +9,9 @@
 - [x] Show a three-photo personal memory reveal immediately after “Yes, obviously.”
 - [x] Keep the countdown/locked state available after the photo reveal.
 - [x] Verify the handoff and save a new checkpoint.
+
+## Background music
+
+- [x] Upload the supplied MP3 into the web project asset storage.
+- [x] Start the track from the user-initiated “Yes, obviously” action when the photo reveal opens.
+- [x] Add a discreet sound on/off control and verify the build.
