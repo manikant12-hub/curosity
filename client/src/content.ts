@@ -11,13 +11,13 @@ export const birthdayConfig = {
     {
       src: "/manus-storage/birthdaybash_10810fdc.png",
       alt: "Aishwarya in a blue saree",
-      caption: "One of those moments worth keeping.",
+      caption: "",
       label: "01 / blue hour"
     },
     {
       src: "/manus-storage/Birthdaybash1_b8b5cfc9.png",
       alt: "Aishwarya in a light blue traditional outfit",
-      caption: "Another version of you I get to remember.",
+      caption: "",
       label: "02 / blue day"
     },
     {
