@@ -27,3 +27,9 @@
 - [x] Remove the personal photo card from the initial opening screen.
 - [x] Keep the personal photo reveal exclusively after “Yes, obviously.”
 - [x] Verify the corrected sequence and save a checkpoint.
+
+## Personal photo upload 02
+
+- [x] Upload `Birthdaybash1.png` to web project storage.
+- [x] Replace photo slot 02 while preserving slots 01 and 03.
+- [x] Verify the updated post-yes reveal and save a checkpoint.

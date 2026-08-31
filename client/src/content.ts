@@ -15,10 +15,10 @@ export const birthdayConfig = {
       label: "01 / blue hour"
     },
     {
-      src: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=85",
-      alt: "A pale blue fabric detail in natural light",
+      src: "/manus-storage/Birthdaybash1_b8b5cfc9.png",
+      alt: "Aishwarya in a light blue traditional outfit",
       caption: "Another version of you I get to remember.",
-      label: "02 / blue hour"
+      label: "02 / blue day"
     },
     {
       src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85",
