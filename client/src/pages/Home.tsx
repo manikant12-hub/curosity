@@ -15,10 +15,12 @@ function useCountdown(target: string, preview: boolean) {
 }
 
 export default function Home() {
-  const preview = new URLSearchParams(window.location.search).get(c.previewParam) === "true";
+  const params = new URLSearchParams(window.location.search);
+  const preview = params.get(c.previewParam) === "true";
+  const revealOnly = preview && params.get("reveal") === "true";
   const countdown = useCountdown(c.birthdayDate, preview);
-  const [started, setStarted] = useState(false);
-  const [photoReveal, setPhotoReveal] = useState(false);
+  const [started, setStarted] = useState(revealOnly);
+  const [photoReveal, setPhotoReveal] = useState(revealOnly);
   const [soundOn, setSoundOn] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [navOpen, setNavOpen] = useState(false);

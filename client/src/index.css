@@ -84,3 +84,8 @@ img { display:block; max-width:100%; }
 @keyframes card-lift-center { 0%{opacity:0;filter:blur(5px);transform:translateY(50px) rotateX(15deg) rotateZ(7deg) scale(.92)} 55%{opacity:1;filter:blur(0)} 100%{opacity:1;filter:none;transform:translateY(0) rotateX(0) rotateZ(3deg) scale(1)}}
 @keyframes card-lift-right { 0%{opacity:0;filter:blur(5px);transform:translateY(50px) rotateX(15deg) rotateZ(-6deg) scale(.92)} 55%{opacity:1;filter:blur(0)} 100%{opacity:1;filter:none;transform:translateY(55px) rotateX(0) rotateZ(-2deg) scale(1)}}
 @media (prefers-reduced-motion:reduce){.photo-reveal:after,.photo-reveal-copy,.photo-reveal-copy:after,.reveal-card,.reveal-actions{animation:none;opacity:1;filter:none;transform:none}}
+
+/* Photo framing correction: preserve uploaded aspect ratios instead of forcing portrait crops. */
+.reveal-card img { aspect-ratio:auto; height:auto; object-fit:contain; object-position:center; background:#d9d0c2; }
+.photo-stack img { aspect-ratio:auto; height:auto; max-height:72svh; object-fit:contain; object-position:center; background:#d9d0c2; }
+@media (max-width:699px){.reveal-card-3 { width:72%; }.photo-stack img { max-height:68svh; }}

@@ -45,3 +45,9 @@
 - [x] Add a staged reveal with depth, lift, and staggered entrance timing.
 - [x] Keep the reveal touch-friendly and reduced-motion safe.
 - [x] Verify the updated animation and save a checkpoint.
+
+## Photo framing correction
+
+- [x] Preserve each uploaded photo's full composition in the post-yes reveal.
+- [x] Adjust portrait and collage framing for mobile and desktop without distortion.
+- [x] Verify the corrected reveal and save a checkpoint.
