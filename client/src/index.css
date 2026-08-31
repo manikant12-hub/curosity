@@ -61,3 +61,26 @@ img { display:block; max-width:100%; }
 
 .reveal-actions { display:flex; align-items:center; justify-content:center; gap:24px; margin-top:40px; position:relative; z-index:1; }.reveal-actions .reveal-continue { margin:0; }.sound-toggle { color:var(--sea-dark); font-size:9px; letter-spacing:.14em; text-transform:uppercase; padding:8px 0; border-bottom:1px solid rgba(79,119,117,.55); }.sound-toggle[aria-pressed="false"] { color:var(--muted); border-color:rgba(136,144,140,.45); }
 @media (min-width:700px){.reveal-actions{margin-top:58px;}}
+
+/* Cinematic reveal refinement — the images arrive like a hand-opened memory stack. */
+.photo-reveal { isolation:isolate; }
+.photo-reveal:after { content:""; position:absolute; z-index:0; width:42vw; height:140%; top:-20%; left:-55%; background:linear-gradient(105deg,transparent 15%,rgba(255,255,255,.32) 45%,transparent 72%); transform:rotate(10deg); animation:light-sweep 1.8s .45s var(--ease) both; pointer-events:none; }
+.photo-reveal-copy { animation:copy-reveal .8s .08s var(--ease) both; }
+.photo-reveal-copy:after { content:""; display:block; width:54px; height:1px; margin-top:25px; background:var(--sea-dark); transform-origin:left; animation:rule-grow .6s .7s var(--ease) both; }
+.reveal-gallery { perspective:900px; }
+.reveal-card { transform-style:preserve-3d; opacity:0; filter:blur(5px); animation:card-lift .95s var(--ease) forwards; }
+.reveal-card:before { content:""; position:absolute; z-index:3; inset:7px; border:1px solid rgba(255,255,255,.65); pointer-events:none; opacity:.7; }
+.reveal-card-1 { animation-delay:.35s; }.reveal-card-2 { animation-delay:.58s; }.reveal-card-3 { animation-delay:.81s; }
+.reveal-card img { transition:transform .7s var(--ease), filter .7s var(--ease); }
+.reveal-card:hover img { transform:scale(1.035); filter:saturate(1); }
+.reveal-card figcaption { position:relative; z-index:4; }
+.reveal-actions { opacity:0; animation:fade-up .6s 1.35s var(--ease) forwards; }
+@keyframes card-lift { 0% { opacity:0; filter:blur(5px); transform:translateY(45px) rotateX(15deg) rotateZ(-7deg) scale(.94); } 55% { opacity:1; filter:blur(0); } 100% { opacity:1; filter:none; transform:translateY(0) rotateX(0) rotateZ(-4deg) scale(1); } }
+@keyframes copy-reveal { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+@keyframes rule-grow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@keyframes light-sweep { from { transform:translateX(0) rotate(10deg); opacity:0; } 25% { opacity:1; } to { transform:translateX(360%) rotate(10deg); opacity:0; } }
+@media (min-width:700px){.reveal-card-1{animation-name:card-lift-left}.reveal-card-2{animation-name:card-lift-center}.reveal-card-3{animation-name:card-lift-right}}
+@keyframes card-lift-left { 0%{opacity:0;filter:blur(5px);transform:translateY(50px) rotateX(15deg) rotateZ(-10deg) scale(.92)} 55%{opacity:1;filter:blur(0)} 100%{opacity:1;filter:none;transform:translateY(28px) rotateX(0) rotateZ(-4deg) scale(1)}}
+@keyframes card-lift-center { 0%{opacity:0;filter:blur(5px);transform:translateY(50px) rotateX(15deg) rotateZ(7deg) scale(.92)} 55%{opacity:1;filter:blur(0)} 100%{opacity:1;filter:none;transform:translateY(0) rotateX(0) rotateZ(3deg) scale(1)}}
+@keyframes card-lift-right { 0%{opacity:0;filter:blur(5px);transform:translateY(50px) rotateX(15deg) rotateZ(-6deg) scale(.92)} 55%{opacity:1;filter:blur(0)} 100%{opacity:1;filter:none;transform:translateY(55px) rotateX(0) rotateZ(-2deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.photo-reveal:after,.photo-reveal-copy,.photo-reveal-copy:after,.reveal-card,.reveal-actions{animation:none;opacity:1;filter:none;transform:none}}

@@ -39,3 +39,9 @@
 - [x] Upload `birthdaybash2.png` to web project storage.
 - [x] Replace photo slot 03 and complete the three-image reveal set.
 - [x] Verify the completed reveal and save a checkpoint.
+
+## Photo reveal animation
+
+- [x] Add a staged reveal with depth, lift, and staggered entrance timing.
+- [x] Keep the reveal touch-friendly and reduced-motion safe.
+- [x] Verify the updated animation and save a checkpoint.
