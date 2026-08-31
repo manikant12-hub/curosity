@@ -33,3 +33,9 @@
 - [x] Upload `Birthdaybash1.png` to web project storage.
 - [x] Replace photo slot 02 while preserving slots 01 and 03.
 - [x] Verify the updated post-yes reveal and save a checkpoint.
+
+## Personal photo upload 03
+
+- [x] Upload `birthdaybash2.png` to web project storage.
+- [x] Replace photo slot 03 and complete the three-image reveal set.
+- [x] Verify the completed reveal and save a checkpoint.

@@ -21,10 +21,10 @@ export const birthdayConfig = {
       label: "02 / blue day"
     },
     {
-      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85",
-      alt: "A portrait in deep blue tones",
+      src: "/manus-storage/birthdaybash2_7636f7c0.png",
+      alt: "Aishwarya walking beside the sea",
       caption: "Just you being you.",
-      label: "03 / in focus"
+      label: "03 / by the sea"
     }
   ],
   letter: [
