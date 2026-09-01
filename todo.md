@@ -70,3 +70,10 @@
 - [x] Make the post-yes photo reveal interactive with selectable slides and controls.
 - [x] Add a birthday cake reveal that starts or resumes KALYANI at the celebration moment.
 - [x] Verify the full flow and save a checkpoint.
+
+## Storytelling transformation
+
+- [x] Add a narrative arc with chapter pacing and scroll-led reveals.
+- [x] Add progressive transitions so each chapter feels like the next beat of the story.
+- [x] Preserve all existing interactive moments while making the experience feel continuous.
+- [x] Verify the storytelling flow and save a checkpoint.
