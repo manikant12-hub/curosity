@@ -28,7 +28,7 @@ export const birthdayConfig = {
     }
   ],
   letter: [
-    "Aishwarya,",
+    "Choti,",
     "I don't think every important person in our lives arrives with a big announcement.",
     "Sometimes they just slowly become part of our everyday life.",
     "And somewhere along the way, you became more than just a friend to me.",
