@@ -90,3 +90,9 @@
 - [x] Add a subtle clickable discovery inside the memories chapter.
 - [x] Reveal a special photo and personal note when discovered.
 - [x] Verify keyboard/touch interaction and save a checkpoint.
+
+## Mobile Surprise hero correction
+
+- [x] Reframe the beach photo for the phone-sized Surprise hero.
+- [x] Improve the overlay and text contrast without hiding the subject.
+- [x] Verify mobile and desktop composition and save a checkpoint.

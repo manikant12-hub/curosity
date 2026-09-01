@@ -158,3 +158,15 @@ img { display:block; max-width:100%; }
 @keyframes hidden-memory-in { from { opacity:0; transform:translateY(14px) rotate(-1deg); } to { opacity:1; transform:none; } }
 @media (max-width:600px){.hidden-memory-card{grid-template-columns:1fr 92px;gap:12px;padding:14px}.hidden-memory-card h3{font-size:25px}.hidden-memory-card p:not(.eyebrow){font-size:12px}}
 @media (prefers-reduced-motion:reduce){.hidden-memory-trigger,.hidden-memory-card{animation:none;transition:none;transform:none}}
+
+/* Mobile hero correction — give the beach memory its own frame, then let the birthday copy breathe below it. */
+@media (max-width:700px){
+  .hero-chapter { min-height:100svh; display:grid; grid-template-rows:57svh 43svh; background:#172927; }
+  .hero-chapter .hero-image { position:relative; inset:auto; height:57svh; overflow:hidden; background:#172927; }
+  .hero-chapter .hero-image img { width:100%; height:100%; object-fit:contain; object-position:center; background:#172927; }
+  .hero-chapter .hero-image .image-wash { background:linear-gradient(180deg,rgba(23,41,39,0) 55%,rgba(23,41,39,.32) 100%); }
+  .hero-chapter .hero-copy { position:relative; inset:auto; height:43svh; display:flex; flex-direction:column; justify-content:center; padding:28px 22px 20px; background:#172927; }
+  .hero-chapter .hero-copy .hero-name { font-size:clamp(58px,18vw,84px); line-height:.86; margin:8px 0 15px; }
+  .hero-chapter .hero-copy .hero-sub { font-size:18px; line-height:1.18; }
+  .hero-chapter .hero-bottom { margin-top:auto; }
+}
