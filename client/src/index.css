@@ -126,3 +126,23 @@ img { display:block; max-width:100%; }
 @keyframes story-copy-rise { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
 @keyframes story-image-breathe { from { transform:scale(1.06); filter:saturate(.72); } to { transform:scale(1); filter:saturate(1); } }
 @media (prefers-reduced-motion:reduce){.story-chapter > *,.story-chapter.is-inview .chapter-inner > *,.story-chapter.is-inview .hero-image img,.story-chapter.is-inview .celebration-image img{animation:none;transition:none;opacity:1;transform:none;filter:none}}
+
+/* Story controls — quiet signposts that make the long-form experience feel guided. */
+.story-progress { position:fixed; z-index:30; right:20px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; align-items:flex-end; }
+.story-progress-label { writing-mode:vertical-rl; transform:rotate(180deg); font-size:9px; letter-spacing:.18em; color:rgba(33,41,31,.48); margin-bottom:4px; }
+.story-progress button { display:flex; align-items:center; gap:7px; border:0; background:transparent; padding:3px 0; color:rgba(33,41,31,.42); transition:color .2s var(--ease), transform .2s var(--ease); }
+.story-progress button i { width:7px; height:7px; display:block; border:1px solid currentColor; border-radius:50%; font-size:0; }
+.story-progress button b { max-width:0; overflow:hidden; white-space:nowrap; font-size:9px; font-weight:500; letter-spacing:.08em; transition:max-width .25s var(--ease); }
+.story-progress button:hover,.story-progress button.is-active { color:var(--sea-dark); transform:translateX(-2px); }
+.story-progress button.is-active b { max-width:90px; }
+.mic-blow { margin-top:8px; border:1px solid rgba(255,255,255,.45); border-radius:999px; padding:7px 12px; color:rgba(255,255,255,.82); background:rgba(20,30,28,.18); font-size:10px; letter-spacing:.08em; backdrop-filter:blur(8px); transition:background .2s var(--ease), transform .2s var(--ease); }
+.mic-blow:hover { background:rgba(20,30,28,.4); transform:translateY(-2px); }
+.response-panel { margin:22px auto 18px; max-width:460px; padding:16px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); text-align:left; }
+.response-label { margin:0 0 8px; color:rgba(255,255,255,.62); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+.reaction-row { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px; }
+.reaction-row button,.voice-button { border:1px solid rgba(255,255,255,.28); background:transparent; color:#fff; padding:8px 10px; font-size:11px; transition:background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease); }
+.reaction-row button:hover,.reaction-row button.is-selected,.voice-button:hover { border-color:var(--sea); background:rgba(133,191,188,.16); transform:translateY(-2px); }
+.voice-button.recording { border-color:#e8a99b; color:#ffd5cb; }
+.voice-playback { display:block; width:100%; margin-top:12px; }
+@media (max-width:700px){.story-progress{right:8px;gap:9px}.story-progress-label,.story-progress button b{display:none}.story-progress button i{width:6px;height:6px}.response-panel{margin-left:0;margin-right:0}.reaction-row button{font-size:10px}}
+@media (prefers-reduced-motion:reduce){.story-progress button,.mic-blow,.reaction-row button,.voice-button{transition:none;transform:none}}

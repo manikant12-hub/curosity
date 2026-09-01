@@ -77,3 +77,10 @@
 - [x] Add progressive transitions so each chapter feels like the next beat of the story.
 - [x] Preserve all existing interactive moments while making the experience feel continuous.
 - [x] Verify the storytelling flow and save a checkpoint.
+
+## Story interaction upgrade
+
+- [x] Add a floating side progress rail linked to the six story chapters.
+- [x] Add microphone blow detection with a tap-to-blow fallback for the cake.
+- [x] Add an end-of-story reaction selector and optional voice recorder.
+- [x] Verify permissions, fallbacks, responsiveness, and save a checkpoint.
