@@ -96,3 +96,9 @@
 - [x] Reframe the beach photo for the phone-sized Surprise hero.
 - [x] Improve the overlay and text contrast without hiding the subject.
 - [x] Verify mobile and desktop composition and save a checkpoint.
+
+## GitHub export
+
+- [ ] Confirm GitHub CLI access for `username-manikant12-hub`.
+- [ ] Create private repository `curosity` and upload the complete website.
+- [ ] Verify the remote repository and provide its link.
