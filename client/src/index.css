@@ -146,3 +146,15 @@ img { display:block; max-width:100%; }
 .voice-playback { display:block; width:100%; margin-top:12px; }
 @media (max-width:700px){.story-progress{right:8px;gap:9px}.story-progress-label,.story-progress button b{display:none}.story-progress button i{width:6px;height:6px}.response-panel{margin-left:0;margin-right:0}.reaction-row button{font-size:10px}}
 @media (prefers-reduced-motion:reduce){.story-progress button,.mic-blow,.reaction-row button,.voice-button{transition:none;transform:none}}
+
+/* Hidden memory — a discoverable footnote in the visual story. */
+.hidden-memory-trigger { display:inline-flex; align-items:center; gap:7px; margin:6px 0 22px; padding:6px 0; border:0; border-bottom:1px solid rgba(33,41,31,.28); background:transparent; color:rgba(33,41,31,.56); font-size:10px; letter-spacing:.08em; transition:color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease); }
+.hidden-memory-trigger:hover,.hidden-memory-trigger.is-found { color:var(--sea-dark); border-color:var(--sea-dark); transform:translateX(4px); }
+.hidden-memory-card { position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(110px,28%); gap:18px; align-items:center; margin:0 0 28px; padding:18px; background:rgba(255,255,255,.58); border:1px solid rgba(33,41,31,.14); box-shadow:0 18px 38px rgba(33,41,31,.12); animation:hidden-memory-in .55s var(--ease) both; }
+.hidden-memory-card h3 { margin:.35rem 0 .55rem; font-family:var(--font-display); font-size:clamp(22px,3vw,36px); line-height:.95; color:var(--ink); }
+.hidden-memory-card p:not(.eyebrow) { max-width:34ch; margin:0; color:rgba(33,41,31,.72); font-size:13px; line-height:1.55; }
+.hidden-memory-card img { width:100%; aspect-ratio:4/5; object-fit:contain; background:#d9d0c2; filter:saturate(.86); }
+.hidden-memory-card > button { position:absolute; top:8px; right:10px; border:0; background:transparent; color:rgba(33,41,31,.58); font-size:22px; line-height:1; }
+@keyframes hidden-memory-in { from { opacity:0; transform:translateY(14px) rotate(-1deg); } to { opacity:1; transform:none; } }
+@media (max-width:600px){.hidden-memory-card{grid-template-columns:1fr 92px;gap:12px;padding:14px}.hidden-memory-card h3{font-size:25px}.hidden-memory-card p:not(.eyebrow){font-size:12px}}
+@media (prefers-reduced-motion:reduce){.hidden-memory-trigger,.hidden-memory-card{animation:none;transition:none;transform:none}}

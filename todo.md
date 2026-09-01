@@ -84,3 +84,9 @@
 - [x] Add microphone blow detection with a tap-to-blow fallback for the cake.
 - [x] Add an end-of-story reaction selector and optional voice recorder.
 - [x] Verify permissions, fallbacks, responsiveness, and save a checkpoint.
+
+## Hidden memory discovery
+
+- [x] Add a subtle clickable discovery inside the memories chapter.
+- [x] Reveal a special photo and personal note when discovered.
+- [x] Verify keyboard/touch interaction and save a checkpoint.
